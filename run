@@ -1,0 +1,2 @@
+
+docker run -d -p 80:80 -v `pwd`:/docker -v /var/run/docker.sock:/var/run/docker.sock chefserver 
