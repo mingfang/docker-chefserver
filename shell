@@ -1,1 +1,1 @@
-docker run -p 80:80 -v `pwd`:/docker -v /var/run/docker.sock:/var/run/docker.sock -rm=true -i -t chefserver /bin/bash
+docker run -p 8000:80 -v `pwd`:/docker -v /var/run/docker.sock:/var/run/docker.sock -rm=true -i -t chefserver /bin/bash
