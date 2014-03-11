@@ -1,2 +1,4 @@
+#!/bin/sh
+
 cat /etc/sysctl.d/*postgresql.conf | sysctl -e -p -
-exec /opt/chef-server/embedded/bin/runsvdir-start
+/opt/chef-server/embedded/bin/runsvdir-start

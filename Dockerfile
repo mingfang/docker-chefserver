@@ -33,7 +33,7 @@ RUN wget -O /usr/local/bin/docker https://get.docker.io/builds/Linux/x86_64/dock
 
 #Configuration
 #Fix Nginx redirect problem when behind NAT
-RUN sed -i -e 's|proxy_set_header Host .*|proxy_set_header Host $http_host|' /var/opt/chef-server/nginx/etc/chef_http_lb.conf
+RUN sed -i -e 's|proxy_set_header Host .*|proxy_set_header Host $http_host;|' /var/opt/chef-server/nginx/etc/chef_http_lb.conf
 
 ADD . /docker
 RUN cp -r /docker/sv/ssh /opt/chef-server/service/
