@@ -39,5 +39,5 @@ ADD . /docker
 RUN cp -r /docker/sv/ssh /opt/chef-server/service/
 
 RUN echo 'export PATH=/opt/chef-server/embedded/bin:$PATH' >> /root/.bashrc
-CMD ["/docker/start"]
+CMD /docker/init
 EXPOSE 22
