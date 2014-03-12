@@ -6,7 +6,7 @@ RUN echo 'deb http://archive.ubuntu.com/ubuntu precise main universe' > /etc/apt
 
 #SSHD
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server &&	mkdir /var/run/sshd && \
-	echo 'root:root' |chpasswd
+    echo 'root:root' |chpasswd
 
 #Utilities
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y vim less net-tools inetutils-ping curl git telnet nmap socat dnsutils netcat tree htop unzip sudo
@@ -37,7 +37,12 @@ RUN sed -i -e 's|proxy_set_header Host .*|proxy_set_header Host $http_host;|' /v
 
 ADD . /docker
 RUN cp -r /docker/sv/ssh /opt/chef-server/service/
+#Knife
+RUN mkdir -p /root/.chef && \
+    ln -s /docker/knife.rb /root/.chef/
 
 RUN echo 'export PATH=/opt/chef-server/embedded/bin:$PATH' >> /root/.bashrc
 CMD /docker/init
 EXPOSE 22
+
+
