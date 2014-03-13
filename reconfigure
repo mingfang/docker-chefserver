@@ -1,0 +1,4 @@
+chef-server-ctl reconfigure 
+#Fix Nginx redirect problem when behind NAT
+sed -i -e 's|proxy_set_header Host .*|proxy_set_header Host $http_host;|' /var/opt/chef-server/nginx/etc/chef_http_lb.conf
+chef-server-ctl restart nginx

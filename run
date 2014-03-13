@@ -1,1 +1,1 @@
-docker run -t -d -p 8000:80 -v `pwd`:/docker -v /var/run/docker.sock:/var/run/docker.sock chefserver
+docker run -e HOST=`hostname` -t -d -p 9000:80 -v `pwd`:/docker -v /var/run/docker.sock:/var/run/docker.sock chefserver

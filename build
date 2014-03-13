@@ -1,1 +1,1 @@
-docker build -rm=true -t chefserver .
+docker build -t chefserver .
